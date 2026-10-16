@@ -2,24 +2,31 @@
 
 ## The site
 The site is static and lives in `site/`. There is no build step. GitHub Pages
-serves `site/` directly via `.github/workflows/deploy.yml`.
+serves `site/` directly via the root workflow at `.github/workflows/deploy.yml`.
 
 Flow:
-1. Push to `main` touching `site/**`.
-2. `guard` job runs the fleet's safety checks (CNAME, secrets, icons).
-3. `deploy` job uploads `site/` and publishes to Pages.
+1. Push to `main` touching `site/**` or the deployment workflow.
+2. The `guard` job checks for a stray CNAME, tracked secrets, and required site
+   assets.
+3. The `deploy` job uploads `site/` and publishes it to Pages.
 
-## A skill
-Skills are not "deployed" — they are released.
+## Skills
+The skills are maintained as folders under `skills/` in this umbrella repository.
+Each folder includes `.github/workflows/release.yml`, but GitHub does not run a
+workflow from a nested folder. These files are templates for use after extracting
+a skill into its own Git repository.
 
-1. Bump `version` in `manifest.json` and `CHANGELOG.md`.
-2. Compute `sha256` for each file in `manifest.json:files`.
-3. Commit, then tag `v<version>` (must match `manifest.json:version`).
-4. `release.yml` verifies the tag, verifies hashes, signs the manifest with
-   minisign, and uploads `manifest.json` + `manifest.json.minisig`.
+For local installation, clone this repository, run `make verify`, and copy the
+chosen folder into `~/workspace/custom-skills/<skill-name>/`. Individual release
+ZIPs are not currently published.
 
-Consumers download the release, verify hashes against `manifest.json:files`,
-then drop the folder into `~/workspace/custom-skills/<skill-name>/`.
+In a standalone skill repository, pushing a `v<version>` tag activates the
+included template. It checks the tag against `manifest.json:version`, verifies
+listed hashes, signs `manifest.json` with Minisign, and attaches the manifest and
+`.minisig` signature to a GitHub release. It requires the repository secret
+`MINISIGN_SECRET_KEY` and installs Minisign on the runner. It does not package or
+upload the skill folder as a ZIP. A trusted public key and consumer verification
+instructions still need to be published before signatures can be relied on.
 
 ## Cloudflare (optional)
 If the site is served from Cloudflare instead, run the preflight first:

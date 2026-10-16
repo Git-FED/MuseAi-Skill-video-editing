@@ -1,34 +1,24 @@
 # Install
 
 ## Prerequisites
-- `bash`, `git`, `unzip`, `jq` (for verification)
+- `git`, `make`, `bash`, `jq`, and `sha256sum` (for verification)
 - For specific skills:
   - `muse-video-editor` → `ffmpeg`, `ffprobe`
   - `muse-cloudflare-deploy` → `wrangler`, `node`
 
 ## Install a skill
-1. Download the release for the skill:
+The umbrella repository does not publish individual skill archives. Clone it,
+verify its manifests, and copy the desired skill folder:
 
-   ```bash
-   curl -LO https://example.org/fed-os-muse-skills/releases/download/v1.0.0/muse-footer-layout-v1.0.0.zip
-   ```
+```bash
+git clone https://github.com/Git-FED/fed-os-muse-skills.git
+cd fed-os-muse-skills
+make verify
+mkdir -p ~/workspace/custom-skills
+cp -r skills/muse-footer-layout ~/workspace/custom-skills/
+```
 
-2. Verify the file hashes against `manifest.json:files`:
-
-   ```bash
-   unzip -q muse-footer-layout-v1.0.0.zip -d /tmp/verify
-   cd /tmp/verify/muse-footer-layout
-   jq -r '.files | to_entries[] | "\(.value|sub("sha256:";"") )  \(.key)"' manifest.json | sha256sum -c -
-   ```
-
-3. Drop it in:
-
-   ```bash
-   mkdir -p ~/workspace/custom-skills
-   cp -r /tmp/verify/muse-footer-layout ~/workspace/custom-skills/
-   ```
-
-4. Ask your Muse agent to use it by name.
+Ask your Muse agent to use the skill by name.
 
 ## Run the site locally
 No build needed:
