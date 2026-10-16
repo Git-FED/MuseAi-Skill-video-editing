@@ -1,0 +1,8 @@
+# CODEOWNERS
+# Default owner for everything in the repo.
+* @Git-FED
+
+# Skill manifests and release workflow require the maintainer.
+/skills/*/manifest.json        @Git-FED
+/skills/*/.github/workflows/   @Git-FED
+/.github/workflows/            @Git-FED

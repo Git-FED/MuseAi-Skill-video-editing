@@ -1,0 +1,57 @@
+name: deploy-site
+
+# Static site. There is no build step — this publishes site/ as-is.
+# (There is deliberately no build.yml: nothing compiles.)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "site/**"
+      - ".github/workflows/deploy.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Refuse a stray CNAME
+        run: bash skills/muse-cname-guard/scripts/check-cname.sh
+
+      - name: Refuse tracked secrets
+        run: bash skills/muse-cloudflare-deploy/scripts/check-secrets.sh
+
+      - name: Validate icons/assets
+        run: bash scripts/validate_icons.sh
+
+  deploy:
+    needs: guard
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site/
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
