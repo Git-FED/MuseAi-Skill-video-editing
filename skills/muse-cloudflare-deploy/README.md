@@ -7,12 +7,16 @@ Anyone deploying to Cloudflare who has ever shipped `node_modules` as a static
 asset, or deployed to the wrong target, and wants a guardrail.
 
 ## Install
-1. Download the latest release.
-2. Verify file hashes against `manifest.json:files`.
-3. Drop the folder into `~/workspace/custom-skills/muse-cloudflare-deploy/`.
+The skills are folders in the umbrella repository; individual release archives
+are not published yet. Clone the repository, verify the manifests, then copy the
+skill folder:
 
 ```bash
-unzip muse-cloudflare-deploy-v1.0.0.zip -d ~/workspace/custom-skills/
+git clone https://github.com/Git-FED/fed-os-muse-skills.git
+cd fed-os-muse-skills
+make verify
+mkdir -p ~/workspace/custom-skills
+cp -r skills/muse-cloudflare-deploy ~/workspace/custom-skills/
 ```
 
 ## Quick example

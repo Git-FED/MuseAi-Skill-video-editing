@@ -1,4 +1,2 @@
-/* Convenience entry point.
-   The real stylesheet lives at assets/css/main.css.
-   Link either one — this file just forwards. */
+/* Compatibility entry point for older links; the site uses this shared stylesheet. */
 @import url("assets/css/main.css");

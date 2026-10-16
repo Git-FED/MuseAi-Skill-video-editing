@@ -6,12 +6,12 @@ skill fleet should cite the things it actually leans on, not pad a bibliography.
 
 ## Standards and specifications
 
-- **Semantic Versioning 2.0.0** — the version numbers in every `manifest.json`.
+- **Semantic Versioning 2.0.0** — the version numbers in each `manifest.json`.
   <https://semver.org/spec/v2.0.0.html>
 - **SHA-256 (FIPS 180-4)** — the hash algorithm used for `manifest.json:files`
   and verified by `scripts/verify-hashes.sh`.
   <https://csrc.nist.gov/publications/detail/fips/180/4/final>
-- **minisign** — the signing tool referenced by the release workflow.
+- **Minisign** — signs manifests in the per-skill release workflow templates.
   <https://jedisct1.github.io/minisign/>
 - **Web Content Accessibility Guidelines (WCAG) 2.2** — the source of the
   contrast, focus-visible, and reduced-motion requirements the site follows.

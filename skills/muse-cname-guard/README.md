@@ -7,12 +7,16 @@ Anyone deploying to GitHub Pages (or any static host) who wants a guardrail
 against a `CNAME` file quietly repointing the site.
 
 ## Install
-1. Download the latest release.
-2. Verify file hashes against `manifest.json:files`.
-3. Drop the folder into `~/workspace/custom-skills/muse-cname-guard/`.
+The skills are folders in the umbrella repository; individual release archives
+are not published yet. Clone the repository, verify the manifests, then copy the
+skill folder:
 
 ```bash
-unzip muse-cname-guard-v1.0.0.zip -d ~/workspace/custom-skills/
+git clone https://github.com/Git-FED/fed-os-muse-skills.git
+cd fed-os-muse-skills
+make verify
+mkdir -p ~/workspace/custom-skills
+cp -r skills/muse-cname-guard ~/workspace/custom-skills/
 ```
 
 ## Quick example

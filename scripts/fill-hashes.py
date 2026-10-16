@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Fill manifest.json:files hashes with real SHA-256 values.
 
-The release workflow re-verifies these and then signs the manifest. This script
-lets a maintainer commit a self-consistent, verifiable manifest instead of a
-placeholder, so `scripts/verify-hashes.sh` passes on a fresh checkout.
+This script lets a maintainer commit a self-consistent, verifiable manifest
+instead of a placeholder, so `scripts/verify-hashes.sh` passes on a fresh
+checkout. Hashes provide consistency checks; they do not authenticate a publisher.
 
 Usage:
     python3 scripts/fill-hashes.py

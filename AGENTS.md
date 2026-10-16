@@ -17,12 +17,13 @@ that presents them.
 4. **Disclose referrals.** Any link that pays the author carries
    `"disclosure": "referral"` and a plain-language line.
 5. **No fake gates.** A client-side "I am 18+" checkbox is not verification.
-6. **Enforced hashes.** If you change executable content in a skill, update
-   `manifest.json:files` or the release will fail.
+6. **Verifiable hashes.** If you change a file listed in a skill manifest,
+   update `manifest.json:files` and run `make verify`.
 
 ## How to add a skill
-Copy the 12-file contract from `docs/adr/0001-one-repo-per-skill.md`. Keep the
-shape identical. Run `make verify && make guard && make icons` before proposing.
+Follow the shared folder contract in `docs/adr/0001-one-repo-per-skill.md` and
+keep the shape identical. Run `make verify && make guard && make icons` before
+proposing.
 
 ## How to run the checks
 ```bash

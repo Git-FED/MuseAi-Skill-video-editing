@@ -2,11 +2,9 @@
 
 ## What this is
 
-FED-OS Muse Skills is a fleet of small, auditable packages that teach an AI Muse
-agent how to do one job each. Every skill follows the same shape — a `SKILL.md`
-playbook, a `manifest.json`, a `README.md`, and a `scripts/` directory — so that
-you can read a skill in one sitting and decide whether to trust it before you run
-it.
+FED-OS Muse Skills is an umbrella repository with five small, auditable skill
+folders for AI Muse agents. Each folder centers on a `SKILL.md` playbook and a
+`manifest.json`; read the package before installing it.
 
 ## The five skills
 
@@ -18,36 +16,27 @@ it.
 | `muse-cloudflare-deploy` | Dry-run preflight and asset-leak detection before a deploy. |
 | `muse-funding-buttons` | Resolve a funding handle to a class, a label, and a gate rule. |
 
-## The six shared rules
+## Shared rules
 
-Every skill obeys the same six rules. They are the reason the fleet is coherent
-rather than a pile of scripts.
-
-1. **One repo per skill.** One playbook, one manifest, one changelog, one release.
-2. **No HTML in skill repos.** A skill's output is a plan, not markup.
-3. **No live credentials.** Not client IDs, not publishable keys, not buy-button
-   IDs, not merchant IDs, not OAuth `state` or `redirect_uri`. Secrets are read
-   from the environment; the repo ships only an empty `.env.example`.
-4. **Canonical links only.** Reference platforms by handle (`patreon: fedpromptly`)
-   and resolve at render time. Never paste a live checkout URL.
-5. **Disclose referrals.** Any link that pays the author carries
-   `"disclosure": "referral"` and a plain-language line next to it.
-6. **No fake gates.** A client-side "I am 18+" checkbox is not verification. Gate
-   server-side or do not claim to gate.
+Every skill follows the same core package shape: one folder per skill, no HTML in
+skill folders, no live credentials, canonical links only, clear referral
+disclosures, no fake gates, and verifiable file hashes.
 
 ## Integrity
 
-Releases verify the SHA-256 hashes listed in `manifest.json:files` and sign the
-manifest. You can re-check the hashes yourself with
-`scripts/verify-hashes.sh`. A hash mismatch is a stop condition, not a warning.
+Run `make verify` from the umbrella repository to compare package files against
+the SHA-256 values recorded in each `manifest.json:files`. This checks local
+consistency; it does not authenticate a publisher. Each skill carries a nested
+release workflow template, but those workflows do not run from the umbrella. In a
+standalone skill repository, a tagged release can publish a signed manifest and
+signature—not a skill ZIP. A trusted public-key distribution path is still needed
+before consumers can verify signatures.
 
 ## The public site
 
-`site/` is a static, no-build-step landing page. It is accessible (WCAG-minded:
-focus-visible, contrast, `prefers-reduced-motion`, a `backdrop-filter` fallback, a
-skip link) and it wires a favicon three ways — SVG, ICO, and `apple-touch-icon`.
-It is deliberately separate from the skill repos: the site is a website, and the
-skills are plans.
+`site/` is a static, no-build-step landing page. It is accessibility-minded, with
+visible keyboard focus, contrast-conscious text, reduced-motion support, a
+`backdrop-filter` fallback, and a skip link. It is separate from the skill folders.
 
 ## License
 

@@ -14,7 +14,7 @@ cd fed-os-muse-skills
 ## 2. Look before you run
 
 Every skill is readable in one sitting. Read the playbook and the manifest first —
-this is the whole point of "one repo per skill."
+this is the point of keeping one self-contained folder per skill.
 
 ```bash
 cat skills/muse-video-editor/SKILL.md
@@ -44,16 +44,20 @@ command -v ffmpeg || echo "install ffmpeg first"
 If a binary is missing, install it with your package manager. The skill will not
 try to install it for you, and it will not silently fall back to something else.
 
-## 4. Verify the release hashes (optional but recommended)
+## 4. Verify the manifest hashes (optional but recommended)
 
-Before trusting a downloaded release, check the hashes:
+Check the files in the current checkout against their recorded hashes:
 
 ```bash
-bash scripts/verify-hashes.sh skills/muse-video-editor
+make verify
 ```
 
-This recomputes the SHA-256 of every file listed in `manifest.json:files` and
-compares it to the recorded value. If anything does not match, stop and investigate.
+This checks all skill folders listed in the repository's manifests. It confirms
+file consistency, not publisher identity. Each skill folder carries a release
+workflow template, but GitHub does not run nested workflows from this umbrella.
+If extracted into a standalone repository, the template can sign a tagged
+manifest; consumers still need a trusted public key to verify it. If anything
+does not match, stop and investigate.
 
 ## 5. Run the skill's script directly
 
@@ -105,7 +109,7 @@ disclosure. That is the rule in action: **canonical links only, disclose referra
 ## 8. Where to go next
 
 - [docs/INSTALL.md](docs/INSTALL.md) — installing a skill into an agent
-- [docs/BUILD.md](docs/BUILD.md) — packaging and releasing a skill
+- [docs/BUILD.md](docs/BUILD.md) — verification and repository checks
 - [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) — shipping the public site
 - [FAQ.md](FAQ.md) — the questions people actually ask
 - [SUPPORT.md](SUPPORT.md) — how to get help

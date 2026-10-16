@@ -13,7 +13,9 @@ root `docs/`.
 2. **Install** — mirror `docs/INSTALL.md`.
 3. **Skills** — one page per skill: what it does, prerequisites, steps,
    never-assume rules, output, failure handling.
-4. **Releasing** — mirror `docs/DEPLOYMENT.md` (hash → sign → tag).
+4. **Packages** — mirror `docs/DEPLOYMENT.md`; explain clone-and-copy
+   installation, local manifest verification, and that nested release workflows
+   are templates (not active here) and do not create ZIP archives.
 5. **Security** — the no-credentials rule, how to report a leak.
 6. **FAQ** — mirror `FAQ.md`.
 

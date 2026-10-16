@@ -5,8 +5,8 @@ mood board — it carries the accessibility constraints the first draft missed.
 
 ---
 
-Build a single static landing page for "FED-OS Muse Skills" — a fleet of
-one-repo-per-skill packages for AI Muse agents.
+Build a single static landing page for "FED-OS Muse Skills" — an umbrella
+repository with five self-contained skill folders for AI Muse agents.
 
 **Aesthetic:** dark "obsidian" base (#07070a) with neon cyan (#00f0ff) and
 violet (#7000ff) accents. Glassmorphism cards. A subtle ambient mesh gradient
@@ -29,7 +29,7 @@ and a faint grid, both as fixed background layers.
 - Any referral link carries a plain-language disclosure line above/near it.
 
 **Output:** `index.html`, `assets/css/main.css`, `assets/js/app.js`, plus
-`favicon.svg`, `favicon.ico`, `logo.svg`, `social-preview.png`. No build step,
+`favicon.svg`, `favicon.png`, `favicon.ico`, `logo.svg`, `social-preview.jpg`. No build step,
 no framework, no external CDN except the fonts already in the system stack.
 
 **Do not** inline live payment embeds, client IDs, or checkout URLs.

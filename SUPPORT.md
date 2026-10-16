@@ -8,11 +8,11 @@ they usually are.
 Most questions are answered somewhere in this repository. The fastest path is
 usually:
 
-- [README.md](README.md) — what the project is and the skill contract
-- [docs/INSTALL.md](docs/INSTALL.md) — getting a skill into a Muse agent
-- [docs/BUILD.md](docs/BUILD.md) — packaging and release mechanics
-- [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) — shipping the public site
-- [FAQ.md](FAQ.md) — the questions people actually ask
+- [README.md](README.md) — project overview and skill contract
+- [docs/INSTALL.md](docs/INSTALL.md) — installing a skill
+- [docs/BUILD.md](docs/BUILD.md) — verification commands; there is no compile step
+- [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) — site deployment and skill packaging
+- [FAQ.md](FAQ.md) — common questions
 - [usage.md](usage.md) — a worked, copy-pasteable walkthrough
 
 ## 2. Search the issues
@@ -42,8 +42,8 @@ so a report that a credential leaked is treated as a top-priority incident.
 
 ## What we can and cannot help with
 
-We can help with anything in this repository: the skills, the scripts, the site,
-the release workflow, and the shared rules.
+We can help with anything in this repository: the skill folders and their release
+templates, scripts, site, package verification, and shared rules.
 
 We cannot help with problems inside third-party tools (`ffmpeg`, `jq`, `wrangler`,
 a hosting provider's dashboard) beyond pointing you at the right place to ask. We

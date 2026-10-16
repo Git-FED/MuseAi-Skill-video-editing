@@ -11,8 +11,9 @@ FAIL=0
 required=(
   "assets/images/logo.svg"
   "assets/images/favicon.svg"
+  "assets/images/favicon.png"
   "assets/images/favicon.ico"
-  "assets/images/social-preview.png"
+  "assets/images/social-preview.jpg"
 )
 
 for f in "${required[@]}"; do
@@ -37,7 +38,7 @@ done
 
 # Favicon.ico must be a real ICO (magic bytes 00 00 01 00).
 if [ -f "$SITE/assets/images/favicon.ico" ]; then
-  if [ "$(xxd -p -l 4 "$SITE/assets/images/favicon.ico")" = "00000100" ]; then
+  if [ "$(od -An -N4 -tx1 "$SITE/assets/images/favicon.ico" | tr -d ' \n')" = "00000100" ]; then
     echo "OK    favicon.ico has valid ICO magic bytes"
   else
     echo "BAD_ICO  favicon.ico is not a valid ICO" >&2

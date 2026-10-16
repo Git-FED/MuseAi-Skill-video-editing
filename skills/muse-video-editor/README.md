@@ -7,12 +7,16 @@ Anyone producing short-form vertical video who wants their Muse agent to do the
 crop, scale, and encode without hand-holding.
 
 ## Install
-1. Download the latest release (`muse-video-editor-v1.0.0.zip`).
-2. Verify file hashes against `manifest.json:files`.
-3. Drop the folder into `~/workspace/custom-skills/muse-video-editor/`.
+The skills are folders in the umbrella repository; individual release archives
+are not published yet. Clone the repository, verify the manifests, then copy the
+skill folder:
 
 ```bash
-unzip muse-video-editor-v1.0.0.zip -d ~/workspace/custom-skills/
+git clone https://github.com/Git-FED/fed-os-muse-skills.git
+cd fed-os-muse-skills
+make verify
+mkdir -p ~/workspace/custom-skills
+cp -r skills/muse-video-editor ~/workspace/custom-skills/
 ```
 
 ## Quick example

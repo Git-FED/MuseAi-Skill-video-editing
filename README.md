@@ -1,13 +1,9 @@
 # FED-OS Muse Skills
 
-<img width="1200" height="630" alt="social-preview" src="https://github.com/user-attachments/assets/f5731a4e-69ca-460d-9a4c-1f6851c01911" />
-
-A fleet of **one-repo-per-skill** packages for AI Muse agents. Each skill is a
-self-contained folder that a Muse agent reads, follows, and executes. No build
-step, no package manager, no config — the `SKILL.md` does all the work.
-
-This repository is the umbrella: it ships five production skills plus the public
-landing site that presents them.
+A fleet of self-contained skill packages for AI Muse agents. Each skill lives in
+its own folder, follows a shared contract, and is ready to install on its own.
+This umbrella repository contains five production skills and the static site
+that presents them. No build step or package manager is required.
 
 ---
 
@@ -20,12 +16,12 @@ landing site that presents them.
 | `skills/muse-cname-guard/` | Refuse to ship a stray `CNAME` file that hijacks a domain |
 | `skills/muse-cloudflare-deploy/` | Preflight a Cloudflare Pages/Workers deploy before it leaks assets |
 | `skills/muse-funding-buttons/` | Plan funding surfaces by canonical handle — never a live checkout URL |
-| `site/` | Static landing page (HTML + CSS + JS, favicon wired) |
+| `site/` | Multi-page static site: home, skills, field guide, community, and custom 404 |
 | `.github/` | Issue templates, funding config, CI |
 | `docs/` | Architecture decisions, roadmap, deploy/build/install notes |
 | `prompts/` | Reusable generation prompts (landing page, social preview, wiki) |
 | `scripts/` | Repo-level helper scripts |
-| `promo/` | Comical, simple promotion images |
+| `promo/` | Coordinated promotion images |
 
 ---
 
@@ -44,8 +40,6 @@ means the installer can assume a layout for skill number 1 and skill number 50.
 ├── CHANGELOG.md        # version discipline
 ├── .gitignore
 ├── .github/
-│   └── workflows/
-│       └── release.yml # verify hashes → sign manifest → tag
 ├── references/         # data the SKILL.md reads (optional)
 └── scripts/            # helper scripts the SKILL.md calls (optional)
 ```
@@ -57,16 +51,18 @@ it doesn't belong.
 
 ## Install a skill
 
-1. Download the release for the skill you want.
-2. Verify the file hashes against `manifest.json:files`.
-3. Drop the folder into `~/workspace/custom-skills/<skill-name>/`.
+The umbrella repository does not publish individual skill archives. Clone it,
+verify the package manifests, and copy the folder you want:
 
 ```bash
-# example
-unzip muse-footer-layout-v1.0.0.zip -d ~/workspace/custom-skills/
+git clone https://github.com/Git-FED/fed-os-muse-skills.git
+cd fed-os-muse-skills
+make verify
+mkdir -p ~/workspace/custom-skills
+cp -r skills/muse-footer-layout ~/workspace/custom-skills/
 ```
 
-Then ask your Muse agent to use it by name.
+Then ask your Muse agent to use the skill by name.
 
 ---
 
@@ -77,16 +73,16 @@ of what *looks* like it belongs in a repo versus what actually does.
 
 1. **No HTML in skill repos.** A skill's output is a *plan*, not markup.
 2. **No live credentials, ever.** Client IDs, publishable keys, buy-button IDs,
-   merchant IDs, OAuth `state`, and `redirect_uri` live server-side or in a
-   gitignored `config.js` — never in a tracked file or a URL.
+   merchant IDs, OAuth `state`, and `redirect_uri` are read from the environment
+   when needed — never from a tracked file or a URL.
 3. **Canonical links only.** Reference platforms by handle
    (`patreon: fedpromptly`), resolve to a live URL at render time.
 4. **Disclose referrals.** Any link that pays you carries
    `"disclosure": "referral"` and a plain-language line above it.
 5. **No fake gates.** A client-side "I am 18+" checkbox is not verification.
    Gate the content server-side or don't claim to gate at all.
-6. **Hashes and signatures are enforced, not aspirational.** `release.yml`
-   refuses to publish if `manifest.json:files` doesn't match the tree.
+6. **Hashes are checked.** `make verify` checks recorded file hashes against
+   each skill's current contents.
 
 ---
 

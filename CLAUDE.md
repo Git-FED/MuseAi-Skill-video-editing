@@ -3,9 +3,9 @@
 Guidance for Claude when working in this repository. See also [AGENTS.md](AGENTS.md).
 
 ## Repo shape
-- `skills/` — five skill repos, each the 12-file contract.
+- `skills/` — five self-contained skill folders following the shared contract.
 - `site/` — static landing page (HTML/CSS/JS, favicon wired).
-- `.github/` — issue templates, funding, CI (`release.yml`, `deploy.yml`).
+- `.github/` — issue templates, funding, and GitHub Pages deployment CI.
 - `docs/` — ADRs and operational docs.
 - `prompts/` — reusable generation prompts.
 - `scripts/` — repo-level checks.

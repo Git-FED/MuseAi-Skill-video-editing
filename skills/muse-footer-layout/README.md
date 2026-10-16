@@ -8,12 +8,16 @@ Anyone maintaining a public-facing footer for a Muse agent, site, or community
 that has a mix of public, member-only, and private links.
 
 ## Install
-1. Download the latest release.
-2. Verify file hashes against `manifest.json:files`.
-3. Drop the folder into `~/workspace/custom-skills/muse-footer-layout/`.
+The skills are folders in the umbrella repository; individual release archives
+are not published yet. Clone the repository, verify the manifests, then copy the
+skill folder:
 
 ```bash
-unzip muse-footer-layout-v1.0.0.zip -d ~/workspace/custom-skills/
+git clone https://github.com/Git-FED/fed-os-muse-skills.git
+cd fed-os-muse-skills
+make verify
+mkdir -p ~/workspace/custom-skills
+cp -r skills/muse-footer-layout ~/workspace/custom-skills/
 ```
 
 ## Quick example
