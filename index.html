@@ -1,207 +1,146 @@
-<!-- FED-OS Muse Skills — landing page
-     Static. No build step. No credentials. Favicon wired. -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FED-OS Muse Skills — one repo per skill</title>
-  <meta name="description" content="A fleet of one-repo-per-skill packages for AI Muse agents. No build step. No credentials. Just a SKILL.md that does the work." />
-  <meta name="theme-color" content="#07070a" />
-
-  <!-- Favicon (SVG first, ICO fallback, apple-touch for iOS) -->
-  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
-  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
-  <link rel="apple-touch-icon" href="assets/images/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicon.png" />
-
-  <!-- Open Graph / social preview -->
+  <meta name="theme-color" content="#11110f" />
+  <meta name="description" content="A practical fleet of five self-contained Muse agent skills: focused tools, clear contracts, and no build-step ceremony." />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="FED-OS Muse Skills" />
-  <meta property="og:description" content="One repo per skill for AI Muse agents." />
+  <meta property="og:title" content="FED-OS Muse Skills — tools with a point of view" />
+  <meta property="og:description" content="Five focused agent skills. One honest contract. No build-step ceremony." />
   <meta property="og:image" content="assets/images/social-preview.png" />
   <meta name="twitter:card" content="summary_large_image" />
-
+  <title>FED-OS Muse Skills — tools with a point of view</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="assets/images/favicon.png" />
   <link rel="stylesheet" href="assets/css/main.css" />
-<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-
-  <div class="bg-layer bg-mesh" aria-hidden="true"></div>
-  <div class="bg-layer bg-grid" aria-hidden="true"></div>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
 
   <header class="site-header">
-    <div class="wrap">
+    <div class="wrap header-inner">
       <a class="brand" href="index.html" aria-label="FED-OS Muse Skills home">
-        <img src="assets/images/logo.svg" alt="" width="34" height="34" />
-        <span>FED-OS Muse Skills</span>
+        <span class="brand-mark"><img src="assets/images/logo.svg" alt="" width="36" height="36" /></span>
+        <span class="brand-copy"><strong>FED-OS</strong><small>MUSE SKILLS / OPEN TOOLKIT</small></span>
       </a>
-      <nav class="nav" aria-label="Primary">
-        <a href="#skills">Skills</a>
-        <a href="#rules">Rules</a>
-        <a href="#funding">Support</a>
-        <a href="#install">Install</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation"><span></span><span></span></button>
+      <nav class="nav" id="primary-nav" aria-label="Primary navigation">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="skills.html">Skills</a>
+        <a href="guide.html">Field guide</a>
+        <a href="community.html">Community</a>
+        <a class="nav-join" href="https://beta.echoed.gg/invite/65dd48216ed4d23bb2ca" target="_blank" rel="noopener noreferrer">Join the server <span aria-hidden="true">↗</span></a>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero">
-      <div class="wrap">
-        <span class="eyebrow">// one repo per skill · its own release</span>
-        <h1>Build skills for <span class="grad">AI Muse agents</span> that actually ship.</h1>
-        <p class="lede">
-          A skill is a folder. A <code>SKILL.md</code> is the product. No build step,
-          no package manager, no config — drop it in and the agent does the work.
-          This fleet ships five production skills plus the rules that keep them honest.
-        </p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="#skills">See the skills</a>
-          <a class="btn btn-ghost" href="https://muse.ai/join" rel="noopener noreferrer">Try Muse →</a>
+    <section class="hero wrap">
+      <div class="hero-copy" data-reveal>
+        <p class="eyebrow"><span class="eyebrow-pulse"></span> FIELD NOTES / TOOLKIT 001 <span class="eyebrow-divider">·</span> BUILT TO BE USED</p>
+        <h1>Less ceremony.<br /><span class="headline-accent">More things that work.</span></h1>
+        <p class="hero-lede">Five small, self-contained skills for the unglamorous work that keeps a project moving—from cutting video to catching a risky deploy. Readable, verifiable, and refreshingly direct.</p>
+        <div class="hero-actions">
+          <a class="button button-lime" href="skills.html">Explore the skills <span aria-hidden="true">↘</span></a>
+          <a class="button button-outline" href="https://beta.echoed.gg/invite/65dd48216ed4d23bb2ca" target="_blank" rel="noopener noreferrer">Join the server <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-footnote"><span class="tiny-spark" aria-hidden="true">✳</span> No framework, package manager, or secret keys required to browse.</div>
+      </div>
+      <div class="hero-visual" data-reveal aria-label="Illustration of a five-skill toolkit orbiting a central agent" role="img">
+        <div class="visual-orbit orbit-outer"></div><div class="visual-orbit orbit-inner"></div>
+        <div class="orbit-dash dash-one"></div><div class="orbit-dash dash-two"></div>
+        <div class="orbit-core"><span class="core-glow"></span><img src="assets/images/logo.svg" alt="" /><b>FED<br />OS</b></div>
+        <div class="orbit-node node-video"><span class="node-icon">▶</span><b>VIDEO</b><small>cut / caption</small></div>
+        <div class="orbit-node node-footer"><span class="node-icon">↗</span><b>FOOTER</b><small>classify / plan</small></div>
+        <div class="orbit-node node-guard"><span class="node-icon">⌁</span><b>GUARD</b><small>scan / stop</small></div>
+        <div class="orbit-node node-deploy"><span class="node-icon">⌘</span><b>DEPLOY</b><small>preflight / ship</small></div>
+        <div class="orbit-node node-fund"><span class="node-icon">✳</span><b>FUNDING</b><small>plan / disclose</small></div>
+        <div class="visual-label label-top">FIVE TOOLS, ONE STANDARD</div>
+        <div class="visual-label label-bottom"><i></i> ALL SYSTEMS HONEST</div>
+        <span class="visual-star star-a" aria-hidden="true">✳</span><span class="visual-star star-b" aria-hidden="true">✦</span>
+      </div>
+    </section>
+
+    <div class="ticker" aria-label="Open source · small tools · clear contracts · no hidden setup">
+      <div class="ticker-track" aria-hidden="true"><span>SMALL TOOLS</span><b>✳</b><span>CLEAR CONTRACTS</span><b>✳</b><span>NO BUILD STEP</span><b>✳</b><span>FAIL LOUDLY</span><b>✳</b><span>SMALL TOOLS</span><b>✳</b><span>CLEAR CONTRACTS</span><b>✳</b><span>NO BUILD STEP</span><b>✳</b><span>FAIL LOUDLY</span><b>✳</b></div>
+    </div>
+
+    <section class="intro-strip wrap" aria-label="Project at a glance">
+      <div class="intro-stat"><strong>05</strong><span>focused skills</span></div>
+      <div class="intro-stat"><strong>01</strong><span>shared package contract</span></div>
+      <div class="intro-stat"><strong>0</strong><span>build steps to browse</span></div>
+      <p>Built around a simple idea: useful tools should be easy to inspect before you trust them.</p>
+    </section>
+
+    <section class="section-block wrap" id="toolkit">
+      <div class="section-heading" data-reveal>
+        <div><p class="section-kicker">01 / THE TOOLKIT</p><h2>Small jobs. <span class="text-lime">Handled well.</span></h2></div>
+        <a class="text-link" href="skills.html">See every skill <span aria-hidden="true">↗</span></a>
+      </div>
+      <p class="section-intro">Each package does one specific job, names its prerequisites, and says what success looks like. No mystery glue, no silent guesses.</p>
+      <div class="skill-grid">
+        <article class="skill-card card-orange" data-reveal><div class="card-top"><span class="card-index">01</span><span class="card-glyph">▶</span></div><p class="card-label">MEDIA / FFMPEG</p><h3>Video editor</h3><p>Probe the source, make a vertical cut, burn in captions, and check that the output is real.</p><a href="skills.html#video-editor">Meet the skill <span aria-hidden="true">↗</span></a></article>
+        <article class="skill-card card-violet" data-reveal><div class="card-top"><span class="card-index">02</span><span class="card-glyph">↗</span></div><p class="card-label">LINKS / INFORMATION DESIGN</p><h3>Footer layout</h3><p>Sort links into public, premium, private, or internal—and keep gated links out of the public footer.</p><a href="skills.html#footer-layout">Meet the skill <span aria-hidden="true">↗</span></a></article>
+        <article class="skill-card card-lime" data-reveal><div class="card-top"><span class="card-index">03</span><span class="card-glyph">⌁</span></div><p class="card-label">RELEASE / SAFETY</p><h3>CNAME guard</h3><p>Find a stray custom-domain file before release. Report it clearly; never remove it behind your back.</p><a href="skills.html#cname-guard">Meet the skill <span aria-hidden="true">↗</span></a></article>
+        <article class="skill-card card-cyan" data-reveal><div class="card-top"><span class="card-index">04</span><span class="card-glyph">⌘</span></div><p class="card-label">CLOUDFLARE / PREFLIGHT</p><h3>Cloudflare deploy</h3><p>Dry-run and inspect what would ship, then catch wrong targets, oversized bundles, or leaked assets.</p><a href="skills.html#cloudflare-deploy">Meet the skill <span aria-hidden="true">↗</span></a></article>
+        <article class="skill-card card-pink" data-reveal><div class="card-top"><span class="card-index">05</span><span class="card-glyph">✳</span></div><p class="card-label">FUNDING / TRANSPARENCY</p><h3>Funding buttons</h3><p>Plan funding surfaces by canonical handle—without storing checkout URLs, keys, or embed IDs.</p><a href="skills.html#funding-buttons">Meet the skill <span aria-hidden="true">↗</span></a></article>
+        <a class="skill-card card-more" href="skills.html" data-reveal><div class="more-mark">+</div><p class="card-label">THE FULL LIST</p><h3>Pick your next tool.</h3><p>See prerequisites, outputs, and the specific checks each skill performs.</p><span class="more-link">Browse the toolkit <span aria-hidden="true">↗</span></span></a>
+      </div>
+    </section>
+
+    <section class="flow-section">
+      <div class="wrap flow-inner">
+        <div class="flow-copy" data-reveal><p class="section-kicker">02 / HOW IT FITS</p><h2>One folder.<br /><span class="text-orange">One clear job.</span></h2><p>Every skill is a small package you can read before running. The agent makes a plan; deterministic scripts handle the repeatable bits.</p><a class="text-link" href="guide.html">Read the field guide <span aria-hidden="true">↗</span></a></div>
+        <div class="flow-steps">
+          <article class="flow-step" data-reveal><span class="step-number">01</span><div><h3>Inspect the package</h3><p>Read <code>SKILL.md</code> and <code>manifest.json</code> first. Know the requirements before you run anything.</p></div><span class="step-mark">⌕</span></article>
+          <article class="flow-step" data-reveal><span class="step-number">02</span><div><h3>Check the prerequisites</h3><p>Confirm the named binaries and files exist. If something is missing, stop and report it—no hidden installs.</p></div><span class="step-mark">✓</span></article>
+          <article class="flow-step" data-reveal><span class="step-number">03</span><div><h3>Run, then verify</h3><p>Use the included script where applicable. Confirm its output instead of inventing a success story.</p></div><span class="step-mark">↗</span></article>
         </div>
       </div>
     </section>
 
-    <section id="skills">
-      <div class="wrap">
-        <h2>The fleet</h2>
-        <p class="sub">Each folder is identical in shape. That sameness is the point.</p>
-        <div class="grid">
-          <article class="glass card" data-reveal>
-            <span class="tag">ffmpeg</span>
-            <h3>muse-video-editor</h3>
-            <p>Cut, caption, and assemble vertical video. Verify → probe → cut → confirm.</p>
-          </article>
-          <article class="glass card" data-reveal>
-            <span class="tag">links</span>
-            <h3>muse-footer-layout</h3>
-            <p>Classify links by visibility → a public footer plan plus a gated list. No HTML.</p>
-          </article>
-          <article class="glass card" data-reveal>
-            <span class="tag">deploy</span>
-            <h3>muse-cname-guard</h3>
-            <p>Refuse to ship a stray <code>CNAME</code> file that silently hijacks a domain.</p>
-          </article>
-          <article class="glass card" data-reveal>
-            <span class="tag">cloudflare</span>
-            <h3>muse-cloudflare-deploy</h3>
-            <p>Preflight a Pages/Workers deploy before it leaks assets or prints a secret.</p>
-          </article>
-          <article class="glass card" data-reveal>
-            <span class="tag">payments</span>
-            <h3>muse-funding-buttons</h3>
-            <p>Plan funding surfaces by canonical handle — never a live checkout URL.</p>
-          </article>
-          <article class="glass card" data-reveal>
-            <span class="tag">contract</span>
-            <h3>The skill contract</h3>
-            <p>SKILL.md · manifest.json · README · LICENSE · SECURITY · CHANGELOG · release.yml.</p>
-          </article>
-        </div>
+    <section class="section-block wrap" id="principles">
+      <div class="section-heading" data-reveal><div><p class="section-kicker">03 / NON-NEGOTIABLES</p><h2>Trust is a <span class="text-violet">feature.</span></h2></div><a class="text-link" href="guide.html#principles">Why these rules? <span aria-hidden="true">↗</span></a></div>
+      <div class="principle-grid">
+        <article class="principle" data-reveal><span>01</span><h3>No HTML in skill repos</h3><p>Skills produce plans and decisions—not markup that pretends to be an installable tool.</p></article>
+        <article class="principle" data-reveal><span>02</span><h3>No live credentials</h3><p>Keys, OAuth state, and checkout IDs never belong in tracked files or URLs.</p></article>
+        <article class="principle" data-reveal><span>03</span><h3>Canonical links only</h3><p>Reference the real platform handle; don’t ship session-bound or live-checkout links.</p></article>
+        <article class="principle" data-reveal><span>04</span><h3>Referral means disclosed</h3><p>If a link can earn a credit, the plain-language disclosure stays right beside it.</p></article>
+        <article class="principle" data-reveal><span>05</span><h3>No fake gates</h3><p>A client-side checkbox is not verification. Don’t claim a gate that doesn’t exist.</p></article>
+        <article class="principle" data-reveal><span>06</span><h3>Hashes are checked</h3><p><code>make verify</code> checks manifest-recorded file hashes for consistency.</p></article>
       </div>
     </section>
 
-    <section id="rules">
-      <div class="wrap">
-        <h2>The rules these skills encode</h2>
-        <p class="sub">The guardrails the whole fleet shares.</p>
-        <div class="grid">
-          <article class="glass card" data-reveal><h3>No HTML in skill repos</h3><p>A skill's output is a plan, not markup.</p></article>
-          <article class="glass card" data-reveal><h3>No live credentials</h3><p>Client IDs, keys, and OAuth state live server-side — never in a tracked file or a URL.</p></article>
-          <article class="glass card" data-reveal><h3>Canonical links only</h3><p>Reference platforms by handle; resolve to a live URL at render time.</p></article>
-          <article class="glass card" data-reveal><h3>Disclose referrals</h3><p>Any link that pays you carries a plain-language disclosure above it.</p></article>
-          <article class="glass card" data-reveal><h3>No fake gates</h3><p>A client-side "I am 18+" checkbox is not verification. Gate the content server-side, or don't claim to gate.</p></article>
-          <article class="glass card" data-reveal><h3>Enforced hashes</h3><p><code>release.yml</code> refuses to publish if <code>manifest.json:files</code> doesn't match the tree.</p></article>
-        </div>
+    <section class="install-band" id="install">
+      <div class="wrap install-grid">
+        <div data-reveal><p class="section-kicker">04 / GET STARTED</p><h2>Clone it.<br /><span class="text-lime">Read it. Use it.</span></h2><p class="install-copy">No package manager. No site build. Clone the umbrella repo, verify the packages, then copy the skill you want into your custom-skills folder.</p><a class="text-link" href="guide.html#install">Full installation notes <span aria-hidden="true">↗</span></a></div>
+        <div class="terminal-card" data-reveal><div class="terminal-top"><span class="terminal-dots"><i></i><i></i><i></i></span><span>YOUR TERMINAL / 3 COMMANDS</span><button class="copy-button" type="button" data-copy="install-command" aria-label="Copy install commands">Copy</button></div><pre><code id="install-command"><span class="terminal-muted">$</span> git clone https://github.com/Git-FED/fed-os-muse-skills.git
+<span class="terminal-muted">$</span> cd fed-os-muse-skills &amp;&amp; make verify
+<span class="terminal-muted">$</span> cp -r skills/muse-footer-layout ~/workspace/custom-skills/</code></pre><p class="terminal-caption"><span class="status-dot"></span> Inspect <code>SKILL.md</code> before handing a skill to an agent.</p></div>
       </div>
     </section>
 
-    <section id="install">
-      <div class="wrap">
-        <h2>Install a skill</h2>
-        <p class="sub">Download → verify hashes → drop it in.</p>
-        <div class="glass card">
-          <pre style="margin:0;overflow:auto"><code># 1. download the release
-curl -LO https://example.org/fed-os-muse-skills/releases/download/v1.0.0/muse-footer-layout-v1.0.0.zip
-
-# 2. verify hashes against manifest.json:files, then drop it in
-unzip muse-footer-layout-v1.0.0.zip -d ~/workspace/custom-skills/</code></pre>
-        </div>
-      </div>
-    </section>
-
-    <section id="funding" class="funding">
-      <div class="wrap">
-        <h2>Support the work</h2>
-        <p class="sub">Funding surfaces by canonical handle. No credentials in the page.</p>
-        <div class="grid" id="funding-grid">
-          <!-- Populated by assets/js/app.js. Static fallbacks below. -->
-          <noscript>
-            <div class="glass fund"><strong>GitHub Sponsors</strong><a class="btn btn-ghost" href="https://github.com/sponsors/Git-FED" rel="noopener noreferrer">Support</a></div>
-            <div class="glass fund"><strong>Patreon</strong><a class="btn btn-ghost" href="https://www.patreon.com/c/FEDpromptly" rel="noopener noreferrer">Support</a></div>
-            <div class="glass fund"><strong>Ko-fi</strong><a class="btn btn-ghost" href="https://ko-fi.com/fedpromptly" rel="noopener noreferrer">Support</a></div>
-            <div class="glass fund"><strong>Buy Me a Coffee</strong><a class="btn btn-ghost" href="https://www.buymeacoffee.com/fedpromptly" rel="noopener noreferrer">Support</a></div>
-          </noscript>
-        </div>
-        <p class="disclosure">
-          Disclosure: the "Try Muse" link on this page is a referral link — I receive a
-          referral credit when someone signs up through it. It costs you nothing and
-          doesn't change the price.
-        </p>
-      </div>
+    <section class="community-callout wrap" data-reveal>
+      <div class="callout-decoration" aria-hidden="true"><span>✳</span><span>✦</span><span>✳</span></div>
+      <div><p class="section-kicker">05 / COME SAY HELLO</p><h2>Good tools get better<br />in <span class="text-orange">good company.</span></h2><p>Join the server to meet the people around the project, trade ideas, and see what’s taking shape.</p></div>
+      <a class="button button-lime" href="https://beta.echoed.gg/invite/65dd48216ed4d23bb2ca" target="_blank" rel="noopener noreferrer">Join the server <span aria-hidden="true">↗</span></a>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="wrap">
-      <div class="footer-cols">
-        <div>
-          <h4>Ecosystem</h4>
-          <ul>
-            <li><a href="https://www.fedpromptly.org" rel="noopener noreferrer">Explore Ecosystem</a></li>
-            <li><a href="https://www.jabburr.com/fed-os" rel="noopener noreferrer">Storefront</a></li>
-            <li><a href="https://substack.com/@fedpromptly" rel="noopener noreferrer">Articles</a></li>
-            <li><a href="https://gitfed.substack.com/" rel="noopener noreferrer">GitFed Blog</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Community</h4>
-          <ul>
-            <li><a href="https://discord.gg/Jm4XStx4Pf" rel="noopener noreferrer">Developers</a></li>
-            <li><a href="https://bsky.app/profile/fed-os.bsky.social" rel="noopener noreferrer">Bluesky</a></li>
-            <li><a href="https://x.com/Fedpromptly" rel="noopener noreferrer">X</a></li>
-            <li><a href="https://www.deviantart.com/fedpromptly" rel="noopener noreferrer">Artwork</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Support</h4>
-          <ul>
-            <li><a href="https://www.patreon.com/c/FEDpromptly" rel="noopener noreferrer">Patreon</a></li>
-            <li><a href="https://ko-fi.com/fedpromptly" rel="noopener noreferrer">Ko-fi</a></li>
-            <li><a href="https://www.buymeacoffee.com/fedpromptly" rel="noopener noreferrer">Buy Me a Coffee</a></li>
-            <li><a href="https://github.com/sponsors/Git-FED" rel="noopener noreferrer">GitHub Sponsors</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Contact</h4>
-          <ul>
-            <li><a href="mailto:contact@fedpromptly.com">contact@fedpromptly.com</a></li>
-            <li><a href="mailto:support@fedpromptly.com">support@fedpromptly.com</a></li>
-            <li><a href="mailto:business@fedpromptly.com">business@fedpromptly.com</a></li>
-            <li><a href="mailto:careers@fedpromptly.com">careers@fedpromptly.com</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-base">
-        <span>© 2026 Git-FED / FED-OS. MIT licensed.</span>
-        <span>Join Muse: <a href="https://muse.ai/join" rel="noopener noreferrer">muse.ai/join</a> — code <code>5F2V31</code></span>
-      </div>
-      <p class="disclosure">Disclosure: the Muse link above is a referral link — I receive a referral credit when someone signs up through it. It costs you nothing and doesn't change the price.</p>
+    <div class="wrap footer-main">
+      <div class="footer-brand"><a class="brand" href="index.html"><span class="brand-mark"><img src="assets/images/logo.svg" alt="" width="36" height="36" /></span><span class="brand-copy"><strong>FED-OS</strong><small>MUSE SKILLS / OPEN TOOLKIT</small></span></a><p>Small, inspectable tools for the work behind the work.</p><a class="footer-server" href="https://beta.echoed.gg/invite/65dd48216ed4d23bb2ca" target="_blank" rel="noopener noreferrer">Join the server <span aria-hidden="true">↗</span></a></div>
+      <div class="footer-col"><h3>Explore</h3><a href="skills.html">The skills</a><a href="guide.html">Field guide</a><a href="community.html">Community</a><a href="https://github.com/Git-FED/fed-os-muse-skills" target="_blank" rel="noopener noreferrer">GitHub repository ↗</a></div>
+      <div class="footer-col"><h3>Elsewhere</h3><a href="https://www.fedpromptly.org" target="_blank" rel="noopener noreferrer">FEDpromptly</a><a href="https://bsky.app/profile/fed-os.bsky.social" target="_blank" rel="noopener noreferrer">Bluesky</a><a href="https://x.com/Fedpromptly" target="_blank" rel="noopener noreferrer">X / Fedpromptly</a><a href="mailto:contact@fedpromptly.com">Contact</a></div>
+      <div class="footer-col footer-support"><h3>Support</h3><p>If the work helps, support is appreciated—never required.</p><a href="https://github.com/sponsors/Git-FED" target="_blank" rel="noopener noreferrer">GitHub Sponsors ↗</a><a href="https://ko-fi.com/fedpromptly" target="_blank" rel="noopener noreferrer">Ko-fi ↗</a></div>
     </div>
+    <div class="wrap footer-bottom"><span>© <span data-year>2026</span> Git-FED / FED-OS · MIT licensed</span><span class="footer-muse">Explore Muse: <a href="https://muse.ai/join" target="_blank" rel="noopener noreferrer">muse.ai/join</a> · code <code>5F2V31</code><span class="disclosure">Referral disclosure: I receive a credit if you sign up through this link. It costs you nothing.</span></span><a href="#main" class="back-top">Back to top ↑</a></div>
   </footer>
-
-  <script src="assets/js/config.example.js"></script>
-  <script src="assets/js/app.js"></script>
+  <script src="assets/js/app.js" defer></script>
 </body>
 </html>

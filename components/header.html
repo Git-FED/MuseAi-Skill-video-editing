@@ -1,18 +1,17 @@
-<!-- Header component. Included by the build, or pasted into a page.
-     Keep in sync with index.html / 404.html. -->
+<!-- Shared header fragment. Keep this navigation aligned with each standalone HTML page. -->
 <header class="site-header">
-  <div class="wrap">
+  <div class="wrap header-inner">
     <a class="brand" href="index.html" aria-label="FED-OS Muse Skills home">
-      <img src="assets/images/logo.svg" alt="" width="34" height="34" />
-      <span>FED-OS Muse Skills</span>
+      <span class="brand-mark"><img src="assets/images/logo.svg" alt="" width="36" height="36" /></span>
+      <span class="brand-copy"><strong>FED-OS</strong><small>MUSE SKILLS / OPEN TOOLKIT</small></span>
     </a>
-    <nav class="nav" aria-label="Primary">
-      <a href="index.html#skills">Skills</a>
-      <a href="index.html#rules">Rules</a>
-      <a href="index.html#funding">Support</a>
-      <a href="index.html#install">Install</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation"><span></span><span></span></button>
+    <nav class="nav" id="primary-nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="skills.html">Skills</a>
+      <a href="guide.html">Field guide</a>
+      <a href="community.html">Community</a>
+      <a class="nav-join" href="https://beta.echoed.gg/invite/65dd48216ed4d23bb2ca" target="_blank" rel="noopener noreferrer">Join the server <span aria-hidden="true">↗</span></a>
     </nav>
   </div>
 </header>
-
-<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>

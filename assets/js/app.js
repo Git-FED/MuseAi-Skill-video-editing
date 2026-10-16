@@ -1,66 +1,96 @@
-/* FED-OS Muse Skills — landing behaviour
-   No framework. No credentials. Funding surfaces are resolved from
-   window.FEDOS_CONFIG (see config.example.js). If config is absent, the
-   static markup in index.html is used as-is. */
-
+/* FED-OS Muse Skills — small, progressive-enhancement interactions. */
 (function () {
   "use strict";
+  var root = document.documentElement;
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  root.classList.add("js-ready");
 
-  var reduceMotion = window.matchMedia &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  /* ---- Funding buttons ----------------------------------------------
-     The plan references platforms by canonical handle. We never embed a
-     client ID, publishable key, buy-button ID, or merchant ID here. */
-  var FUNDING = [
-    { id: "sponsors", label: "GitHub Sponsors", handle: "github:Git-FED", url: "https://github.com/sponsors/Git-FED" },
-    { id: "patreon",  label: "Patreon",         handle: "patreon:fedpromptly", url: "https://www.patreon.com/c/FEDpromptly" },
-    { id: "kofi",     label: "Ko-fi",           handle: "ko-fi:fedpromptly", url: "https://ko-fi.com/fedpromptly" },
-    { id: "bmc",      label: "Buy Me a Coffee", handle: "bmc:fedpromptly", url: "https://www.buymeacoffee.com/fedpromptly" }
-  ];
-
-  function renderFunding() {
-    var mount = document.getElementById("funding-grid");
-    if (!mount) return;
-
-    FUNDING.forEach(function (f) {
-      var el = document.createElement("div");
-      el.className = "glass fund";
-      el.innerHTML =
-        '<strong>' + f.label + '</strong>' +
-        '<small><code>' + f.handle + '</code></small>' +
-        '<a class="btn btn-ghost" rel="noopener noreferrer" href="' + f.url + '">Support</a>';
-      mount.appendChild(el);
+  function initMenu() {
+    var button = document.querySelector(".nav-toggle");
+    var nav = document.getElementById("primary-nav");
+    if (!button || !nav) return;
+    function setOpen(open) {
+      button.setAttribute("aria-expanded", String(open));
+      button.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+      nav.classList.toggle("is-open", open);
+    }
+    button.addEventListener("click", function () {
+      setOpen(button.getAttribute("aria-expanded") !== "true");
+    });
+    nav.addEventListener("click", function (event) {
+      if (event.target.closest("a")) setOpen(false);
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") setOpen(false);
+    });
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 760) setOpen(false);
     });
   }
 
-  /* ---- Reveal-on-scroll (motion-safe) ------------------------------- */
   function initReveal() {
     var targets = document.querySelectorAll("[data-reveal]");
     if (!targets.length) return;
-
     if (reduceMotion || !("IntersectionObserver" in window)) {
-      targets.forEach(function (t) { t.style.opacity = "1"; });
+      targets.forEach(function (element) { element.classList.add("is-revealed"); });
       return;
     }
-
-    targets.forEach(function (t) { t.style.opacity = "0"; t.style.transition = "opacity .5s ease, transform .5s ease"; t.style.transform = "translateY(12px)"; });
-
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          e.target.style.opacity = "1";
-          e.target.style.transform = "none";
-          io.unobserve(e.target);
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-revealed");
+          observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.12, rootMargin: "0px 0px -35px 0px" });
+    targets.forEach(function (element) { observer.observe(element); });
+  }
 
-    targets.forEach(function (t) { io.observe(t); });
+  function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
+    return new Promise(function (resolve, reject) {
+      var field = document.createElement("textarea");
+      field.value = text;
+      field.setAttribute("readonly", "");
+      field.style.position = "fixed";
+      field.style.opacity = "0";
+      document.body.appendChild(field);
+      field.select();
+      try {
+        if (document.execCommand("copy")) resolve();
+        else reject(new Error("Copy was not available"));
+      } catch (error) { reject(error); }
+      field.remove();
+    });
+  }
+
+  function initCopyButtons() {
+    document.querySelectorAll("[data-copy]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        var target = document.getElementById(button.getAttribute("data-copy"));
+        if (!target) return;
+        var original = button.textContent;
+        copyText(target.innerText.trim()).then(function () {
+          button.textContent = "Copied";
+          button.setAttribute("aria-live", "polite");
+          window.setTimeout(function () { button.textContent = original; }, 1800);
+        }).catch(function () {
+          button.textContent = "Select text";
+          window.setTimeout(function () { button.textContent = original; }, 1800);
+        });
+      });
+    });
+  }
+
+  function initYear() {
+    var year = String(new Date().getFullYear());
+    document.querySelectorAll("[data-year]").forEach(function (element) { element.textContent = year; });
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    renderFunding();
+    initMenu();
     initReveal();
+    initCopyButtons();
+    initYear();
   });
 })();
