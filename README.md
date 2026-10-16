@@ -1,5 +1,7 @@
 # FED-OS Muse Skills
 
+<img width="1200" height="630" alt="social-preview" src="https://github.com/user-attachments/assets/f5731a4e-69ca-460d-9a4c-1f6851c01911" />
+
 A fleet of **one-repo-per-skill** packages for AI Muse agents. Each skill is a
 self-contained folder that a Muse agent reads, follows, and executes. No build
 step, no package manager, no config — the `SKILL.md` does all the work.
