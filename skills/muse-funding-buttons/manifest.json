@@ -1,0 +1,35 @@
+{
+  "name": "muse-funding-buttons",
+  "skill_id": "funding-buttons",
+  "version": "1.0.0",
+  "description": "Plan funding surfaces by canonical handle \u2014 never a live checkout URL",
+  "author": "Git-FED",
+  "license": "MIT",
+  "muse_version": ">=1.0",
+  "entry": "SKILL.md",
+  "requires": {
+    "bin": [
+      "jq",
+      "bash"
+    ],
+    "env": []
+  },
+  "capabilities": [
+    "fs:read:~/workspace",
+    "fs:write:~/workspace/output"
+  ],
+  "files": {
+    "SKILL.md": "sha256:544d045c6eddeb64842ed67c575734b079a017d84d6612439b7acb009ebe57c1",
+    "references/funding-links.json": "sha256:b8707450f7cd63b25a6a584a9251d499adec2df18c11a2a8fb14e1cd485618af",
+    "references/embeds.md": "sha256:739f586ac0b5740cda67efda10b73e08456f4acaf2132f3efd7c2ae60411e117",
+    "scripts/classify.sh": "sha256:e5551c5e2e79211f1017cbabed887f538a37839a8335a3ea5e1c8d10a977b34c"
+  },
+  "files_excluded": [
+    "README.md",
+    "CHANGELOG.md",
+    "SECURITY.md",
+    "LICENSE",
+    ".gitignore"
+  ],
+  "signature": null
+}

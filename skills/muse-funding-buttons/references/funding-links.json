@@ -1,0 +1,84 @@
+{
+  "_rules": {
+    "checkout_urls": {
+      "pattern": "patreon\\.com/checkout|/oauth2/|response_type=code|state=|client_id=|buy_btn_|pk_live_|pk_test_",
+      "class": "Premium",
+      "placement": "never-plan",
+      "reason": "stateful OAuth checkout or embedded key — single-use, credential-bearing, session-bound",
+      "action": "resolve to canonical handle"
+    },
+    "referrals": {
+      "pattern": "disclosure=referral",
+      "class": "Public",
+      "requires_disclosure": true
+    }
+  },
+  "order": [
+    "github:Git-FED",
+    "patreon:fedpromptly",
+    "ko-fi:fedpromptly",
+    "bmc:fedpromptly",
+    "paypal:plan",
+    "stripe:buybtn",
+    "crypto:nowpayments"
+  ],
+  "github:Git-FED": {
+    "label": "GitHub Sponsors",
+    "handle": "github:Git-FED",
+    "class": "Premium",
+    "gate": "sponsorship",
+    "canonical": "https://github.com/sponsors/Git-FED"
+  },
+  "patreon:fedpromptly": {
+    "label": "Patreon",
+    "handle": "patreon:fedpromptly",
+    "class": "Premium",
+    "gate": "tiers",
+    "canonical": "https://www.patreon.com/c/FEDpromptly",
+    "note": "GitHub renders its own button from the handle. No client_id, no state."
+  },
+  "ko-fi:fedpromptly": {
+    "label": "Ko-fi",
+    "handle": "ko-fi:fedpromptly",
+    "class": "Premium",
+    "gate": "tips",
+    "canonical": "https://ko-fi.com/fedpromptly"
+  },
+  "bmc:fedpromptly": {
+    "label": "Buy Me a Coffee",
+    "handle": "bmc:fedpromptly",
+    "class": "Public",
+    "gate": "tips",
+    "canonical": "https://www.buymeacoffee.com/fedpromptly"
+  },
+  "paypal:plan": {
+    "label": "PayPal Subscription",
+    "handle": "paypal:plan",
+    "class": "Premium",
+    "gate": "recurring",
+    "note": "Plan ID lives server-side. Never hardcode a client ID in HTML."
+  },
+  "stripe:buybtn": {
+    "label": "Stripe",
+    "handle": "stripe:buybtn",
+    "class": "Premium",
+    "gate": "checkout",
+    "note": "Publishable key + buy-button ID resolved at render time, not stored."
+  },
+  "crypto:nowpayments": {
+    "label": "Crypto",
+    "handle": "crypto:nowpayments",
+    "class": "Premium",
+    "gate": "payment",
+    "note": "Merchant/invoice ID is never printed in a plan or a footer."
+  },
+  "muse:referral": {
+    "label": "Join Muse",
+    "handle": "muse:referral",
+    "class": "Public",
+    "code": "5F2V31",
+    "disclosure": "referral",
+    "canonical": "https://muse.ai/join",
+    "placement": "readme-support-section"
+  }
+}

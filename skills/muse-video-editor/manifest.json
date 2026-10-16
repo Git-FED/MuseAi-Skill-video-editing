@@ -1,0 +1,34 @@
+{
+  "name": "muse-video-editor",
+  "skill_id": "video-editor",
+  "version": "1.0.0",
+  "description": "Cut, caption, and assemble vertical video with ffmpeg",
+  "author": "Git-FED",
+  "license": "MIT",
+  "muse_version": ">=1.0",
+  "entry": "SKILL.md",
+  "requires": {
+    "bin": [
+      "ffmpeg",
+      "ffprobe"
+    ],
+    "env": []
+  },
+  "capabilities": [
+    "shell:exec",
+    "fs:read:~/workspace/input",
+    "fs:write:~/workspace/output"
+  ],
+  "files": {
+    "SKILL.md": "sha256:483902e546c4e969a6784a5f9214ab0bfa288e6b2cfdae2f41926458679652e5",
+    "scripts/cut.sh": "sha256:a35515f4890d7b9b6798989ad5488b3f5184ba86be7a3c50aa185ba6392c49dc"
+  },
+  "files_excluded": [
+    "README.md",
+    "CHANGELOG.md",
+    "SECURITY.md",
+    "LICENSE",
+    ".gitignore"
+  ],
+  "signature": null
+}

@@ -1,0 +1,35 @@
+{
+  "name": "muse-footer-layout",
+  "skill_id": "footer-layout",
+  "version": "1.0.0",
+  "description": "Classify links by visibility and produce a public footer plan plus a gated list",
+  "author": "Git-FED",
+  "license": "MIT",
+  "muse_version": ">=1.0",
+  "entry": "SKILL.md",
+  "requires": {
+    "bin": [
+      "jq",
+      "bash"
+    ],
+    "env": []
+  },
+  "capabilities": [
+    "fs:read:~/workspace",
+    "fs:write:~/workspace/output"
+  ],
+  "files": {
+    "SKILL.md": "sha256:7ab28a7af62e2a0bc8674c64a935edeb4c19de674095b7fa5b29163d927ba9bc",
+    "references/footer-layout.md": "sha256:cc32d95708df5959cc883bf2108130143fcc708eaf15df2b7c1126ed9173e761",
+    "references/links.json": "sha256:66869cea62ecc63d005babe624acafc61728432f72487ee48b85b6a8d9ff6cb9",
+    "scripts/classify.sh": "sha256:fa8e97b8cd5329384c9e4a4f47a9fbaad6d8e9c724ca3cebd1c448945caf8c3f"
+  },
+  "files_excluded": [
+    "README.md",
+    "CHANGELOG.md",
+    "SECURITY.md",
+    "LICENSE",
+    ".gitignore"
+  ],
+  "signature": null
+}

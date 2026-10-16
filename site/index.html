@@ -1,0 +1,207 @@
+<!-- FED-OS Muse Skills — landing page
+     Static. No build step. No credentials. Favicon wired. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FED-OS Muse Skills — one repo per skill</title>
+  <meta name="description" content="A fleet of one-repo-per-skill packages for AI Muse agents. No build step. No credentials. Just a SKILL.md that does the work." />
+  <meta name="theme-color" content="#07070a" />
+
+  <!-- Favicon (SVG first, ICO fallback, apple-touch for iOS) -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="assets/images/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicon.png" />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="FED-OS Muse Skills" />
+  <meta property="og:description" content="One repo per skill for AI Muse agents." />
+  <meta property="og:image" content="assets/images/social-preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="stylesheet" href="assets/css/main.css" />
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="bg-layer bg-mesh" aria-hidden="true"></div>
+  <div class="bg-layer bg-grid" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html" aria-label="FED-OS Muse Skills home">
+        <img src="assets/images/logo.svg" alt="" width="34" height="34" />
+        <span>FED-OS Muse Skills</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#skills">Skills</a>
+        <a href="#rules">Rules</a>
+        <a href="#funding">Support</a>
+        <a href="#install">Install</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <span class="eyebrow">// one repo per skill · its own release</span>
+        <h1>Build skills for <span class="grad">AI Muse agents</span> that actually ship.</h1>
+        <p class="lede">
+          A skill is a folder. A <code>SKILL.md</code> is the product. No build step,
+          no package manager, no config — drop it in and the agent does the work.
+          This fleet ships five production skills plus the rules that keep them honest.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#skills">See the skills</a>
+          <a class="btn btn-ghost" href="https://muse.ai/join" rel="noopener noreferrer">Try Muse →</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <h2>The fleet</h2>
+        <p class="sub">Each folder is identical in shape. That sameness is the point.</p>
+        <div class="grid">
+          <article class="glass card" data-reveal>
+            <span class="tag">ffmpeg</span>
+            <h3>muse-video-editor</h3>
+            <p>Cut, caption, and assemble vertical video. Verify → probe → cut → confirm.</p>
+          </article>
+          <article class="glass card" data-reveal>
+            <span class="tag">links</span>
+            <h3>muse-footer-layout</h3>
+            <p>Classify links by visibility → a public footer plan plus a gated list. No HTML.</p>
+          </article>
+          <article class="glass card" data-reveal>
+            <span class="tag">deploy</span>
+            <h3>muse-cname-guard</h3>
+            <p>Refuse to ship a stray <code>CNAME</code> file that silently hijacks a domain.</p>
+          </article>
+          <article class="glass card" data-reveal>
+            <span class="tag">cloudflare</span>
+            <h3>muse-cloudflare-deploy</h3>
+            <p>Preflight a Pages/Workers deploy before it leaks assets or prints a secret.</p>
+          </article>
+          <article class="glass card" data-reveal>
+            <span class="tag">payments</span>
+            <h3>muse-funding-buttons</h3>
+            <p>Plan funding surfaces by canonical handle — never a live checkout URL.</p>
+          </article>
+          <article class="glass card" data-reveal>
+            <span class="tag">contract</span>
+            <h3>The skill contract</h3>
+            <p>SKILL.md · manifest.json · README · LICENSE · SECURITY · CHANGELOG · release.yml.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="rules">
+      <div class="wrap">
+        <h2>The rules these skills encode</h2>
+        <p class="sub">The guardrails the whole fleet shares.</p>
+        <div class="grid">
+          <article class="glass card" data-reveal><h3>No HTML in skill repos</h3><p>A skill's output is a plan, not markup.</p></article>
+          <article class="glass card" data-reveal><h3>No live credentials</h3><p>Client IDs, keys, and OAuth state live server-side — never in a tracked file or a URL.</p></article>
+          <article class="glass card" data-reveal><h3>Canonical links only</h3><p>Reference platforms by handle; resolve to a live URL at render time.</p></article>
+          <article class="glass card" data-reveal><h3>Disclose referrals</h3><p>Any link that pays you carries a plain-language disclosure above it.</p></article>
+          <article class="glass card" data-reveal><h3>No fake gates</h3><p>A client-side "I am 18+" checkbox is not verification. Gate the content server-side, or don't claim to gate.</p></article>
+          <article class="glass card" data-reveal><h3>Enforced hashes</h3><p><code>release.yml</code> refuses to publish if <code>manifest.json:files</code> doesn't match the tree.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="install">
+      <div class="wrap">
+        <h2>Install a skill</h2>
+        <p class="sub">Download → verify hashes → drop it in.</p>
+        <div class="glass card">
+          <pre style="margin:0;overflow:auto"><code># 1. download the release
+curl -LO https://example.org/fed-os-muse-skills/releases/download/v1.0.0/muse-footer-layout-v1.0.0.zip
+
+# 2. verify hashes against manifest.json:files, then drop it in
+unzip muse-footer-layout-v1.0.0.zip -d ~/workspace/custom-skills/</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="funding" class="funding">
+      <div class="wrap">
+        <h2>Support the work</h2>
+        <p class="sub">Funding surfaces by canonical handle. No credentials in the page.</p>
+        <div class="grid" id="funding-grid">
+          <!-- Populated by assets/js/app.js. Static fallbacks below. -->
+          <noscript>
+            <div class="glass fund"><strong>GitHub Sponsors</strong><a class="btn btn-ghost" href="https://github.com/sponsors/Git-FED" rel="noopener noreferrer">Support</a></div>
+            <div class="glass fund"><strong>Patreon</strong><a class="btn btn-ghost" href="https://www.patreon.com/c/FEDpromptly" rel="noopener noreferrer">Support</a></div>
+            <div class="glass fund"><strong>Ko-fi</strong><a class="btn btn-ghost" href="https://ko-fi.com/fedpromptly" rel="noopener noreferrer">Support</a></div>
+            <div class="glass fund"><strong>Buy Me a Coffee</strong><a class="btn btn-ghost" href="https://www.buymeacoffee.com/fedpromptly" rel="noopener noreferrer">Support</a></div>
+          </noscript>
+        </div>
+        <p class="disclosure">
+          Disclosure: the "Try Muse" link on this page is a referral link — I receive a
+          referral credit when someone signs up through it. It costs you nothing and
+          doesn't change the price.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-cols">
+        <div>
+          <h4>Ecosystem</h4>
+          <ul>
+            <li><a href="https://www.fedpromptly.org" rel="noopener noreferrer">Explore Ecosystem</a></li>
+            <li><a href="https://www.jabburr.com/fed-os" rel="noopener noreferrer">Storefront</a></li>
+            <li><a href="https://substack.com/@fedpromptly" rel="noopener noreferrer">Articles</a></li>
+            <li><a href="https://gitfed.substack.com/" rel="noopener noreferrer">GitFed Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Community</h4>
+          <ul>
+            <li><a href="https://discord.gg/Jm4XStx4Pf" rel="noopener noreferrer">Developers</a></li>
+            <li><a href="https://bsky.app/profile/fed-os.bsky.social" rel="noopener noreferrer">Bluesky</a></li>
+            <li><a href="https://x.com/Fedpromptly" rel="noopener noreferrer">X</a></li>
+            <li><a href="https://www.deviantart.com/fedpromptly" rel="noopener noreferrer">Artwork</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <ul>
+            <li><a href="https://www.patreon.com/c/FEDpromptly" rel="noopener noreferrer">Patreon</a></li>
+            <li><a href="https://ko-fi.com/fedpromptly" rel="noopener noreferrer">Ko-fi</a></li>
+            <li><a href="https://www.buymeacoffee.com/fedpromptly" rel="noopener noreferrer">Buy Me a Coffee</a></li>
+            <li><a href="https://github.com/sponsors/Git-FED" rel="noopener noreferrer">GitHub Sponsors</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:contact@fedpromptly.com">contact@fedpromptly.com</a></li>
+            <li><a href="mailto:support@fedpromptly.com">support@fedpromptly.com</a></li>
+            <li><a href="mailto:business@fedpromptly.com">business@fedpromptly.com</a></li>
+            <li><a href="mailto:careers@fedpromptly.com">careers@fedpromptly.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-base">
+        <span>© 2026 Git-FED / FED-OS. MIT licensed.</span>
+        <span>Join Muse: <a href="https://muse.ai/join" rel="noopener noreferrer">muse.ai/join</a> — code <code>5F2V31</code></span>
+      </div>
+      <p class="disclosure">Disclosure: the Muse link above is a referral link — I receive a referral credit when someone signs up through it. It costs you nothing and doesn't change the price.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/config.example.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

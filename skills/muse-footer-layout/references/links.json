@@ -1,0 +1,44 @@
+{
+  "_rules": {
+    "checkout_urls": {
+      "pattern": "patreon\\.com/checkout|/oauth2/|response_type=code|state=|client_id=",
+      "class": "Premium",
+      "placement": "never-footer",
+      "reason": "stateful OAuth checkout — single-use, credential-bearing, session-bound",
+      "action": "swap to canonical landing page"
+    },
+    "third_party_invite_proxies": {
+      "pattern": "preview\\.|/server/|invite-proxy",
+      "class": "Public",
+      "verify": "resolve to canonical discord.gg/invite before publishing",
+      "reason": "third-party proxy — canonical link is the discord.gg one"
+    },
+    "referrals": {
+      "pattern": "disclosure=referral",
+      "class": "Public",
+      "placement": "readme-support-section",
+      "requires_disclosure": true
+    }
+  },
+  "https://www.fedpromptly.org": { "class": "Public", "label": "Explore Ecosystem" },
+  "https://www.fedpromptly.com/aid": { "class": "Premium", "label": "Join FED-OS Membership", "gate": "membership" },
+  "https://www.jabburr.com/fed-os": { "class": "Public", "label": "Storefront" },
+  "https://whop.com/fedpromptly/": { "class": "Premium", "label": "Whop", "gate": "paid-products" },
+  "contact@fedpromptly.com": { "class": "Public", "label": "Contact" },
+  "support@fedpromptly.com": { "class": "Public", "label": "Support" },
+  "business@fedpromptly.com": { "class": "Public", "label": "Business" },
+  "careers@fedpromptly.com": { "class": "Public", "label": "Careers", "note": "only if hiring" },
+  "https://www.patreon.com/c/FEDpromptly": { "class": "Premium", "label": "Patreon", "gate": "tiers", "placement": "footer-teaser" },
+  "https://buymeacoffee.com/fedpromptly": { "class": "Public", "label": "Tips / Donations" },
+  "https://substack.com/@fedpromptly": { "class": "Public", "label": "Articles" },
+  "https://fedpromptly.wordpress.com/": { "class": "Public", "label": "Blog Post" },
+  "https://gitfed.substack.com/": { "class": "Public", "label": "GitFed Blog" },
+  "https://substack.com/@gitfed": { "class": "Private", "label": "Personal Substack", "reason": "personal" },
+  "https://discord.gg/Jm4XStx4Pf": { "class": "Public", "label": "Developers", "note": "private channels gated" },
+  "https://facebook.com/fedpromptly": { "class": "Public", "label": "Friends" },
+  "https://bsky.app/profile/fed-os.bsky.social": { "class": "Public", "label": "Social Media" },
+  "https://x.com/Fedpromptly": { "class": "Public", "label": "Advertisement / X" },
+  "https://www.deviantart.com/fedpromptly": { "class": "Public", "label": "Artwork" },
+  "https://matrix.to/#/#fed-os:matrix.org": { "class": "Private", "label": "Private Matrix", "gate": "18+", "countries": ["Canada", "Switzerland", "Russia", "Iran", "Somalia", "Turkmenistan"] },
+  "https://muse.ai/join": { "class": "Public", "label": "Join Muse", "code": "5F2V31", "disclosure": "referral", "placement": "readme-support-section" }
+}

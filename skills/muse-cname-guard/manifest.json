@@ -1,0 +1,32 @@
+{
+  "name": "muse-cname-guard",
+  "skill_id": "cname-guard",
+  "version": "1.0.0",
+  "description": "Refuse to ship a stray CNAME file that silently hijacks a domain",
+  "author": "Git-FED",
+  "license": "MIT",
+  "muse_version": ">=1.0",
+  "entry": "SKILL.md",
+  "requires": {
+    "bin": [
+      "find",
+      "bash"
+    ],
+    "env": []
+  },
+  "capabilities": [
+    "fs:read:~/workspace"
+  ],
+  "files": {
+    "SKILL.md": "sha256:e0c7f104e31837b0edbd62d72ac74f6e5765e8b70bfae8c784dd8aae79d8f577",
+    "scripts/check-cname.sh": "sha256:ff2403339a96eb0f24c315ed6b99acd1fd4ad44fcf5db0c3e58868c279d072ab"
+  },
+  "files_excluded": [
+    "README.md",
+    "CHANGELOG.md",
+    "SECURITY.md",
+    "LICENSE",
+    ".gitignore"
+  ],
+  "signature": null
+}

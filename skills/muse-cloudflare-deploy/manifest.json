@@ -1,0 +1,40 @@
+{
+  "name": "muse-cloudflare-deploy",
+  "skill_id": "cloudflare-deploy",
+  "version": "1.0.0",
+  "description": "Preflight a Cloudflare Pages/Workers deploy before it leaks assets",
+  "author": "Git-FED",
+  "license": "MIT",
+  "muse_version": ">=1.0",
+  "entry": "SKILL.md",
+  "requires": {
+    "bin": [
+      "wrangler",
+      "node"
+    ],
+    "env": [
+      "CLOUDFLARE_API_TOKEN",
+      "CLOUDFLARE_ACCOUNT_ID"
+    ]
+  },
+  "capabilities": [
+    "shell:exec",
+    "net:deploy:cloudflare",
+    "fs:read:~/workspace",
+    "fs:write:/tmp"
+  ],
+  "files": {
+    "SKILL.md": "sha256:b32fdcfe2ee1e941e46104a52b2ea16d1e565bf912f19b053e6f973074640672",
+    "references/wrangler-patterns.md": "sha256:10f14ca92ee4b0790eb9a9d7838dc7ef82e7dc592d0e507435fbcf6aef151f7e",
+    "scripts/preflight.sh": "sha256:4a66fae0c850ebb1fa34dee72500dfa3fa598ffa400613d96f4c87b3474dd3ba",
+    "scripts/check-secrets.sh": "sha256:6aa38e281cd95cc1ec6e3ecc557c38bd01c95eaad1b1013de02fe9f41e6efe3b"
+  },
+  "files_excluded": [
+    "README.md",
+    "CHANGELOG.md",
+    "SECURITY.md",
+    "LICENSE",
+    ".gitignore"
+  ],
+  "signature": null
+}
