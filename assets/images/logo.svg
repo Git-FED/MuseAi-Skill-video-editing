@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="FED-OS logo">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00f0ff"/>
+      <stop offset="1" stop-color="#7000ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="#07070a"/>
+  <path d="M128 28 L212 76 L212 180 L128 228 L44 180 L44 76 Z"
+        fill="none" stroke="url(#g)" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M96 92 L168 92 L168 112 L116 112 L116 126 L156 126 L156 146 L116 146 L116 176 L96 176 Z"
+        fill="url(#g)"/>
+</svg>

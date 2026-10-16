@@ -1,0 +1,51 @@
+{
+  "site": "FED-OS Muse Skills",
+  "version": "1.0.0",
+  "updated": "2026-10-16",
+  "note": "Public portfolio data only. No personal data, no credentials.",
+  "skills": [
+    {
+      "id": "video-editor",
+      "name": "muse-video-editor",
+      "summary": "Cut, caption, and assemble vertical video with ffmpeg",
+      "requires": ["ffmpeg", "ffprobe"],
+      "output": "plan + ~/workspace/output/final.mp4"
+    },
+    {
+      "id": "footer-layout",
+      "name": "muse-footer-layout",
+      "summary": "Classify links by visibility → public footer plan + gated list",
+      "requires": ["bash", "jq"],
+      "output": "plan (no HTML)"
+    },
+    {
+      "id": "cname-guard",
+      "name": "muse-cname-guard",
+      "summary": "Refuse to ship a stray CNAME file that silently hijacks a domain",
+      "requires": ["bash", "find"],
+      "output": "pass/fail"
+    },
+    {
+      "id": "cloudflare-deploy",
+      "name": "muse-cloudflare-deploy",
+      "summary": "Preflight a Pages/Workers deploy before it leaks assets",
+      "requires": ["wrangler", "node"],
+      "output": "dry-run report + pass/fail"
+    },
+    {
+      "id": "funding-buttons",
+      "name": "muse-funding-buttons",
+      "summary": "Plan funding surfaces by canonical handle — never a live checkout URL",
+      "requires": ["bash", "jq"],
+      "output": "plan (no URLs, no keys)"
+    }
+  ],
+  "rules": [
+    "No HTML in skill repos",
+    "No live credentials",
+    "Canonical links only",
+    "Disclose referrals",
+    "No fake gates",
+    "Enforced hashes"
+  ]
+}
